@@ -1,10 +1,12 @@
 package com.mozy.produits.entities;
 
 import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Produit {
@@ -15,6 +17,9 @@ public class Produit {
     private String nomProduit;
     private Double prixProduit;
     private Date dateCreation;
+
+    @ManyToOne
+    private Categorie categorie;
 
     public Produit() {
         super();
@@ -57,6 +62,14 @@ public class Produit {
 
     public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 
     @Override
